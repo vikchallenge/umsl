@@ -6,7 +6,7 @@ node {
     }
 
     stage('check java') {
-        sh ". /Users/kulsharm2/.bashrc && java12 && java -version"
+        sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -version"
     }
 
     stage('Install NPM') {
