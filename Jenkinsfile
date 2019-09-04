@@ -4,7 +4,8 @@ node {
     git poll: true, url: 'https://github.com/vikchallenge/umsl'
     
     stage('checkout') {
-        checkout scm
+//        checkout scm
+        git poll: true, url: 'https://github.com/vikchallenge/umsl'
     }
 
     stage('check java') {
