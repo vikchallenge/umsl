@@ -44,7 +44,7 @@ stage('checkout') {
     }
     stage('Just for Testing') {
         steps {
-            sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar target/*.jar"
+            sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
         }
     }
 }
