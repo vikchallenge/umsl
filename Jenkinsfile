@@ -1,6 +1,8 @@
 #!/usr/bin/env groovy
 
 node {
+    git poll: true, url: 'https://github.com/vikchallenge/umsl'
+    
     stage('checkout') {
         checkout scm
     }
