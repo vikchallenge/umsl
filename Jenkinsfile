@@ -3,7 +3,8 @@ pipeline {
 
 stages {
     
-/*    stage('checkout') {
+/*    
+stage('checkout') {
         steps {
                 //enable remote triggers
                 script {
