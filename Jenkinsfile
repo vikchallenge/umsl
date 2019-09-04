@@ -1,14 +1,9 @@
-#!/usr/bin/env groovy
-properties([
-    pipelineTriggers([pollSCM('H * * * *')])
-])
-
 pipeline {
     agent any
 
 stages {
     
-    stage('checkout') {
+/*    stage('checkout') {
         steps {
                 //enable remote triggers
                 script {
@@ -21,6 +16,7 @@ stages {
 //        checkout scm
         //git poll: true, url: 'https://github.com/vikchallenge/umsl'
     }
+ */
 
     stage('check java') {
         steps {
