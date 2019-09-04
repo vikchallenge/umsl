@@ -27,7 +27,7 @@ stage('checkout') {
 
     stage('Install NPM') {
         steps {
-            sudo apt-get install nodejs && sudo apt-get install npm
+            sh "sudo apt-get install nodejs && sudo apt-get install npm"
             sh "/usr/local/bin/npm install  generator-jhipster yo@latest"
             
         }
