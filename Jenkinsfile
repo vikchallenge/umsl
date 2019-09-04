@@ -6,7 +6,7 @@ node {
         //        ANDROID_HOME = '/Users/devops/Library/Android/sdk'
 //        scannerHome = "/Users/devops/sonar/sonar-scanner-3.3.0.1492-macosx"
 //        VERSION_CODE="${BUILD_NUMBER}"
-         PATH=$PATH:"/usr/local/bin/"       
+         PATH="$PATH:/usr/local/bin/"       
     }
     stage('checkout') {
         checkout scm
