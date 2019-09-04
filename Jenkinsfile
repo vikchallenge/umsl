@@ -18,7 +18,7 @@ node {
 
     stage('Install NPM') {
         sh 'echo $PATH'
-        sh "export PATH=$PATH:/usr/local/bin && /usr/local/bin/npm install -g generator-jhipster yo@latest"
+        sh "export PATH=$PATH:/usr/local/bin && /usr/local/bin/npm install generator-jhipster yo@latest"
     }
 
     stage('Packaging') {
