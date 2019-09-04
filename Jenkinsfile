@@ -6,7 +6,7 @@ node {
     }
 
     stage('check java') {
-        sh ". /Users/kulsharm2/.bashrc && java -version"
+        sh ". /Users/kulsharm2/.bashrc && java12 && java -version"
     }
 
     stage('Install NPM') {
