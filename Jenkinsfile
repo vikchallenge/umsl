@@ -36,13 +36,13 @@ stage('checkout') {
             sh "./mvnw -Pprod clean verify"
         }
     }
-/*
+
     stage('Testing') {
         steps {
             sh "./mvnw verify"
         }
     }
- */   stage('Just for Testing') {
+    stage('Just for Testing') {
         steps {
             sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
         }
