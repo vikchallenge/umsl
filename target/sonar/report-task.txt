@@ -1,6 +1,0 @@
-projectKey=UMSL
-serverUrl=http://localhost:9001
-serverVersion=7.7.0.23042
-dashboardUrl=http://localhost:9001/dashboard?id=UMSL
-ceTaskId=AWz63b3YwbTmic-37Da7
-ceTaskUrl=http://localhost:9001/api/ce/task?id=AWz63b3YwbTmic-37Da7
