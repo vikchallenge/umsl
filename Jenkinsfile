@@ -6,11 +6,11 @@ node {
     }
 
     stage('check java') {
-        sh ". . /Users/kulsharm2/.bashrc && java -version"
+        sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -version"
     }
 
     stage('Install NPM') {
-        sh "npm install -g generator-jhipster yo@latest"
+        sh "export PATH=$PATH:/usr/local/bin && npm install -g generator-jhipster yo@latest"
     }
 
     stage('Packaging') {
