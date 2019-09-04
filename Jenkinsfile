@@ -10,7 +10,7 @@ node {
     }
 
     stage('Install NPM') {
-        sh "export PATH="$PATH:/usr/local/bin" && npm install  generator-jhipster yo@latest"
+        sh "/usr/local/bin/npm install  generator-jhipster yo@latest"
     }
 
     stage('Packaging') {
@@ -22,7 +22,7 @@ node {
     }
     
     stage('Code quality') {
-        sh "export PATH="$PATH:/usr/local/bin" && docker-compose -f src/main/docker/sonar.yml up -d"
+        sh "/usr/local/bin/docker-compose -f src/main/docker/sonar.yml up -d"
         sh "./mvnw -Pprod clean verify sonar:sonar"
         sh "./mvnw initialize sonar:sonar"
     }
