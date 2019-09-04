@@ -21,13 +21,13 @@ node {
         sh "./mvnw verify"
     }
     
-    stage('Code quality') {
+/*    stage('Code quality') {
         sh "/usr/local/bin/docker-compose -f src/main/docker/sonar.yml up -d"
         sh "./mvnw -Pprod clean verify sonar:sonar"
         sh "./mvnw initialize sonar:sonar"
     }
     
-/*   stage('quality analysis') {
+   stage('quality analysis') {
         withSonarQubeEnv('http://localhost:9001') {
         }
     }
