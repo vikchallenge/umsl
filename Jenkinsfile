@@ -2,10 +2,10 @@
 
 node {
     environment{
-#        JAVA_HOME = '/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home'
-#        ANDROID_HOME = '/Users/devops/Library/Android/sdk'
-#        scannerHome = "/Users/devops/sonar/sonar-scanner-3.3.0.1492-macosx"
-#        VERSION_CODE="${BUILD_NUMBER}"
+//        JAVA_HOME = '/Library/Java/JavaVirtualMachines/jdk1.8.0_212.jdk/Contents/Home'
+        //        ANDROID_HOME = '/Users/devops/Library/Android/sdk'
+//        scannerHome = "/Users/devops/sonar/sonar-scanner-3.3.0.1492-macosx"
+//        VERSION_CODE="${BUILD_NUMBER}"
          PATH=$PATH:"/usr/local/bin/"       
     }
     stage('checkout') {
