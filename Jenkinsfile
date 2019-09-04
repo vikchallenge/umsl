@@ -10,7 +10,7 @@ node {
     }
 
     stage('Install NPM') {
-        sh "npm install -g generator-jhipster yo@latest"
+        sh "/usr/local/bin/npm install -g generator-jhipster yo@latest"
     }
 
     stage('Packaging') {
