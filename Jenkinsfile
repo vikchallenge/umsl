@@ -16,7 +16,7 @@ stages {
                 }
                 //define scm connection for polling
                 checkout scm
-                //git branch: BRANCH_NAME, credentialsId: 'my-credentials', url: 'ssh://git@stash.server.fqdn/stash/my-project.git'
+                git branch: master, url: 'https://github.com/vikchallenge/umsl'
         }
 //        checkout scm
         //git poll: true, url: 'https://github.com/vikchallenge/umsl'
