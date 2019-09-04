@@ -22,13 +22,14 @@ node {
     }
     
     stage('Code quality') {
-        sh "docker-compose -f src/main/docker/sonar.yml up -d"
+        sh "export PATH=$PATH:/usr/local/bin && docker-compose -f src/main/docker/sonar.yml up -d"
         sh "./mvnw -Pprod clean verify sonar:sonar"
         sh "./mvnw initialize sonar:sonar"
     }
     
-   stage('quality analysis') {
+/*   stage('quality analysis') {
         withSonarQubeEnv('http://localhost:9001') {
         }
     }
+*/
 }
