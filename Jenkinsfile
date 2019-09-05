@@ -3,22 +3,6 @@ pipeline {
 
 stages {
     
-/*    
-stage('checkout') {
-        steps {
-                //enable remote triggers action or stage here
-                script {
-                    properties([pipelineTriggers([pollSCM('')])])
-                }
-                //define scm connection for polling
-                checkout scm
-                git branch: master, url: 'https://github.com/vikchallenge/umsl'
-        }
-//        checkout scm
-        //git poll: true, url: 'https://github.com/vikchallenge/umsl'
-    }
- */
-
     stage('check java') {
         steps {
             sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -version"
@@ -37,13 +21,25 @@ stage('checkout') {
             sh "./mvnw -Pprod clean verify"
         }
     }
-/*
-    stage('Testing') {
-        steps {
-            sh "./mvnw verify"
-        }
+	
+	stage('Upload to S3') {
+
+        dir('$WORKSPACE/target/'){
+
+            pwd(); //Log current directory
+
+            withAWS(region:'ap-south-1',credentials:'yourIDfromStep2') {
+
+                 def identity=awsIdentity();//Log AWS credentials
+
+                // Upload files from working directory 'dist' in your project workspace
+                s3Upload(bucket:"case000", workingDir:'dist', includePathPattern:'**/*');
+            }
+
+        };
     }
- */   stage('Just for Testing') {
+	
+   stage('Downlaod and Deploy on Ec2') {
         steps {
             sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
         }
