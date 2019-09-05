@@ -28,7 +28,7 @@ stages {
 
             pwd(); //Log current directory
 
-            withAWS(region:'ap-south-1',credentials:'yourIDfromStep2') {
+            withAWS(region:'ap-south-1',credentials:'iamuser-student') {
 
                  def identity=awsIdentity();//Log AWS credentials
 
@@ -39,11 +39,11 @@ stages {
         };
     }
 	
-   stage('Downlaod and Deploy on Ec2') {
+   /*stage('Downlaod and Deploy on Ec2') {
         steps {
             sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
         }
-    }
+    }*/
 }
 
 }
