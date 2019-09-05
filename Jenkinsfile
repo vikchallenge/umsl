@@ -3,7 +3,7 @@ pipeline {
 
 stages {
     
-    stage('check java') {
+    stage('Check java') {
         steps {
             sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -version"
         }
@@ -27,7 +27,7 @@ stages {
             withAWS(region:'region=ap-south-1',credentials:'teacher') {
             s3Upload(bucket: 'case000', workingDir:'$WORKSPACE/target/', includePathPattern:'**/*');
 	    }
-		mail(subject: 'Build', body: 'New Deployment to prod', to: 'vdkthakur@gmail.com')
+		mail(subject: 'Build', body: 'New Deployment to Prod', to: 'vdkthakur@gmail.com')
 	}
     }
 
