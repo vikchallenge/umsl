@@ -24,8 +24,8 @@ stages {
 	
     stage('Upload to S3') {
         steps {
-            dir('$WORKSPACE/target/')
-	       pwd();
+            withAWS(region:'region=ap-south-1',credentials:'iamuser-student') {
+            s3Upload(bucket: 'case000', workingDir:'$WORKSPACE/target/', includePathPattern:'**/*');
 	}
     }
 
