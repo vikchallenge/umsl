@@ -24,7 +24,7 @@ stages {
 	
     stage('Upload to S3') {
         steps {
-            withAWS(region:'region=ap-south-1',credentials:'iamuser-student') {
+            withAWS(region:'region=ap-south-1',credentials:'teacher') {
             s3Upload(bucket: 'case000', workingDir:'$WORKSPACE/target/', includePathPattern:'**/*');
 	    }
 		mail(subject: 'Build', body: 'New Deployment to prod', to: 'vdkthakur@gmail.com')
