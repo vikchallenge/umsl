@@ -22,9 +22,10 @@ stages {
         }
     }
 	
-	stage('Upload to S3') {
-	steps {
-        dir('$WORKSPACE/target/')
+    stage('Upload to S3') {
+        steps {
+            dir('$WORKSPACE/target/')
+	       pwd();
 	}
     }
 
