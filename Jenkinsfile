@@ -33,7 +33,7 @@ stages {
                  def identity=awsIdentity();//Log AWS credentials
 
                 // Upload files from working directory 'dist' in your project workspace
-                s3Upload(bucket:"case000", workingDir:'dist', includePathPattern:'**/*');
+                s3Upload(bucket:"case000", workingDir:'dist', includePathPattern:'');
             }
 
         };
