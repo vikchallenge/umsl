@@ -25,7 +25,7 @@ stage('checkout') {
         }
     }
 
-    stage('Install NPM') {
+    stage('Install NPM and jhipster') {
         steps {
             sh "/usr/bin/npm install  generator-jhipster yo@latest"
             
