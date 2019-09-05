@@ -6,7 +6,7 @@ stages {
 /*    
 stage('checkout') {
         steps {
-                //enable remote triggers
+                //enable remote triggers for testing and belwo is script for that
                 script {
                     properties([pipelineTriggers([pollSCM('')])])
                 }
