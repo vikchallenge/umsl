@@ -23,7 +23,7 @@ stages {
     }
 	
 	stage('Upload to S3') {
-	stesp {
+	steps {
         dir('$WORKSPACE/target/')
 	}
     }
