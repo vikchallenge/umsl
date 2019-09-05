@@ -6,7 +6,7 @@ stages {
 /*    
 stage('checkout') {
         steps {
-                //enable remote triggers
+                //enable remote triggers action or stage here
                 script {
                     properties([pipelineTriggers([pollSCM('')])])
                 }
