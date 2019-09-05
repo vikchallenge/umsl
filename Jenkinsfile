@@ -23,8 +23,10 @@ stages {
     }
 	
 	stage('Upload to S3') {
-
-        dir('$WORKSPACE/target/'){
+	stesp {
+        dir('$WORKSPACE/target/')
+	}
+    }
 
     /*        pwd(); //Log current directory
 
