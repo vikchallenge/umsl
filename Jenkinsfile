@@ -39,7 +39,7 @@ stages {
         };
     }
 	
-   /*stage('Downlaod and Deploy on Ec2') {
+   /*stage('Downlaod and Deploy on Ec2 server is final step') {
         steps {
             sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
         }
