@@ -26,7 +26,7 @@ stages {
 
         dir('$WORKSPACE/target/'){
 
-            pwd(); //Log current directory
+    /*        pwd(); //Log current directory
 
             withAWS(region:'ap-south-1',credentials:'iamuser-student') {
 
@@ -37,7 +37,7 @@ stages {
             }
 
         };
-    }
+    }*/
 	
    /*stage('Downlaod and Deploy on Ec2 server is final step') {
         steps {
