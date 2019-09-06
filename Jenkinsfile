@@ -24,19 +24,10 @@ stages {
 	
 	stage('Sending Sending ') {
 		steps {
-		     mail(subject: 'Build', body: 'New Deployment Status of Jhipster Prod', to: 'vdkthakur@gmail.com')
+		     mail(subject: 'Build', body: 'Your new Build has been triggred for JHipster Prod Project', to: 'vikchallenge@gmail.com')
 		}
 	}
-	stage('Send email notification ') {
-		steps {
-		     mail bcc: '', body: '''Hi Team,
 
-			Your new Build has been triggred for JHipster Prod Project.
-
-			Thanks
-			Cloud DevOps Team.''', cc: '', from: '', replyTo: '', subject: 'Build Status', to: 'vikchallenge@gmail.com'
-		}
-	}
 }
 //    stage('Test URL of webpage') {
 //        steps {
