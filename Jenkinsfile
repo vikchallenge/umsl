@@ -21,11 +21,11 @@ stages {
             sh "./mvnw -Pprod clean verify"
         }
     }
-	
-	stage ('emailing')
+     stage('emailing') {
 	    steps {
 	          mail bcc: '', body: 'This is $BUILD_NUMBER and $JOB_NAME', cc: '', from: '', replyTo: '', subject: 'Testing', to: 'vikchallenge@gmail.com'
-	}  
+	} 
+     }
 }
 }	
 //	stage('Sending Sending ') {
