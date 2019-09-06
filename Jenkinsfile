@@ -21,14 +21,27 @@ stages {
             sh "./mvnw -Pprod clean verify"
         }
     }
-	
-	stage('Sending Sending ') {
-		steps {
-		     mail(subject: 'Build', body: 'Your new Build '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has been triggred for JHipster Prod Project', to: 'vikchallenge@gmail.com')
-		}
-	}
+	post 
+    {
+        always 
+        {
+            emailext (subject: "Attention: Build '${currentBuild.currentResult}' : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",  mimeType: 'text/html',
+        body: """<p>Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
+         to: "vikchallenge@gmail.com",
 
+        }
+    }
+ }
 }
+	
+//	stage('Sending Sending ') {
+//		steps {
+//		     mail(subject: 'Build', body: 'Your new Build '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has been triggred for JHipster Prod Project', to: 'vikchallenge@gmail.com')
+//		}
+//	}
+
+//}
 //    stage('Test URL of webpage') {
 //        steps {
 //            sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
@@ -65,4 +78,4 @@ stages {
             sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
         };
     }*/
-}
+//}
