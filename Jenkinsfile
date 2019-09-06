@@ -24,7 +24,7 @@ stages {
 	
 	stage('Sending Sending ') {
 		steps {
-		     mail(subject: 'Build', body: 'Your new Build $BUILD_NUMBER $JOB_NAME has been triggred for JHipster Prod Project', to: 'vikchallenge@gmail.com')
+		     mail(subject: 'Build', body: 'Your new Build ${env.JOB_NAME} ${env.BUILD_NUMBER} has been triggred for JHipster Prod Project', to: 'vikchallenge@gmail.com')
 		}
 	}
 
