@@ -21,17 +21,13 @@ stages {
             sh "./mvnw -Pprod clean verify"
         }
     }
-	post {
-        success {
-            mail to:"vikchallenge@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
-        }
-        failure {
-            mail to:"vikchallenge@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Boo, we failed."
-        }
-    }   
-}
-}
 	
+	stage ('emailing')
+	    steps {
+	          mail bcc: '', body: 'This is $BUILD_NUMBER and $JOB_NAME', cc: '', from: '', replyTo: '', subject: 'Testing', to: 'vikchallenge@gmail.com'
+	}  
+}
+}	
 //	stage('Sending Sending ') {
 //		steps {
 //		     mail(subject: 'Build', body: 'Your new Build '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has been triggred for JHipster Prod Project', to: 'vikchallenge@gmail.com')
