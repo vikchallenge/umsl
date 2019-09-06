@@ -52,9 +52,9 @@ stages {
 //            sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
 //        }
 //    }
-}
+//}
 
-}
+//}
 
 //    stage('Upload to S3') {
 //        steps {
