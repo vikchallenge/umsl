@@ -22,11 +22,11 @@ stages {
         }
     }
 	
-    stage('Test URL of webpage') {
-        steps {
-            sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
-        }
-    }
+//    stage('Test URL of webpage') {
+//        steps {
+//            sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
+//        }
+//    }
 }
 
 }
