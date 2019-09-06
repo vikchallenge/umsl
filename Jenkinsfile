@@ -16,7 +16,7 @@ stages {
         }
     }
 
-    stage('Packaging the build') {
+    stage('Packaging the build now') {
         steps {
             sh "./mvnw -Pprod clean verify"
         }
