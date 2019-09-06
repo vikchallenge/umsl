@@ -23,8 +23,9 @@ stages {
     }
      stage('emailing') {
 	    steps {
-	          mail bcc: '', body: 'This is $BUILD_NUMBER and $JOB_NAME', cc: '', from: '', replyTo: '', subject: 'Testing', to: 'vikchallenge@gmail.com'
-	} 
+	          mail bcc: '', body: 'This is '${env.JOB_NAME} [${env.BUILD_NUMBER}]'', cc: '', from: '', replyTo: '', subject: 'Testing', to: 'vikchallenge@gmail.com'
+	
+	    } 
      }
 }
 }	
