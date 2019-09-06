@@ -22,11 +22,11 @@ stages {
         }
     }
 	
-//	stage('Sending Sending ') {
-//		steps {
-//		     mail(subject: 'Build', body: 'Your new Build has been triggred for JHipster Prod Project', to: 'vikchallenge@gmail.com')
-//		}
-//	}
+	stage('Sending Sending ') {
+		steps {
+		     mail(subject: 'Build', body: 'Your new Build $BUILD_NUMBER $JOB_NAME has been triggred for JHipster Prod Project', to: 'vikchallenge@gmail.com')
+		}
+	}
 
 }
 //    stage('Test URL of webpage') {
