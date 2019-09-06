@@ -22,12 +22,21 @@ stages {
         }
     }
 	
-	stage('Send email notification ') {
+	stage('Sending Sending ') {
 		steps {
 		     mail(subject: 'Build', body: 'New Deployment Status of Jhipster Prod', to: 'vdkthakur@gmail.com')
 		}
 	}
-	
+	stage('Send email notification ') {
+		steps {
+		     mail bcc: '', body: '''Hi Team,
+
+			Your new Build has been trigredfor JHipster Prod Project.
+
+			Thanks
+			Cloud DevOps Team.''', cc: '', from: '', replyTo: '', subject: 'Build Status', to: 'vdkthakur@gmail.com'
+		}
+	}
 }
 //    stage('Test URL of webpage') {
 //        steps {
