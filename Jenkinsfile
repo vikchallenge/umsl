@@ -31,10 +31,10 @@ stages {
 		steps {
 		     mail bcc: '', body: '''Hi Team,
 
-			Your new Build has been trigredfor JHipster Prod Project.
+			Your new Build has been triggred for JHipster Prod Project.
 
 			Thanks
-			Cloud DevOps Team.''', cc: '', from: '', replyTo: '', subject: 'Build Status', to: 'vdkthakur@gmail.com'
+			Cloud DevOps Team.''', cc: '', from: '', replyTo: '', subject: 'Build Status', to: 'vikchallenge@gmail.com'
 		}
 	}
 }
