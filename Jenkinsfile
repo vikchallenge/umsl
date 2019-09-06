@@ -45,7 +45,8 @@ stages {
              echo 'This will run only if the state of the Pipeline has changed'  
              echo 'For example, if the Pipeline was previously failing but is now successful'  
          }  
-     }  
+     } 
+}
 //    stage('Test URL of webpage') {
 //        steps {
 //            sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
