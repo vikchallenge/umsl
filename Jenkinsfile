@@ -21,17 +21,15 @@ stages {
             sh "./mvnw -Pprod clean verify"
         }
     }
-	post 
-    {
-        always 
-        {
-            emailext (subject: "Attention: Build '${currentBuild.currentResult}' : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",  mimeType: 'text/html',
-        body: """<p>Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-        <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
-         to: "vikchallenge@gmail.com"
-	 }
-    }
- }
+	post {
+        success {
+            mail to:"vikchallenge@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
+        }
+        failure {
+            mail to:"vikchallenge@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Boo, we failed."
+        }
+    }   
+}
 }
 	
 //	stage('Sending Sending ') {
