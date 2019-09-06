@@ -9,7 +9,7 @@ stages {
         }
     }
 
-    stage('Install jhipster') {
+    stage('Install jHipster') {
         steps {
             sh "/usr/bin/npm install  generator-jhipster yo@latest"
             
