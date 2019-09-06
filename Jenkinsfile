@@ -21,17 +21,16 @@ stages {
             sh "./mvnw -Pprod clean verify"
         }
     }
-     stage('Get the URL of page') {
-        steps {
-            sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
-        }
-    }
      stage('Send Email notification') {
 	    steps {
 	          mail bcc: '', body: "This is ${env.JOB_NAME} [${env.BUILD_NUMBER}] have result ${currentBuild.currentResult}", cc: '', from: '', replyTo: '', subject: 'Testing', to: 'vikchallenge@gmail.com'
-	
 	    } 
      }
+ //     stage('Get the URL of page') {
+ //          steps {
+ //             sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
+ //       }
+ //   }
 }
 }	
 //	stage('Sending Sending ') {
