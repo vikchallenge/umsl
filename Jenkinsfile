@@ -22,14 +22,14 @@ stages {
         }
     }
 	
-    stage('Upload to S3') {
-        steps {
-            withAWS(region:'region=ap-south-1',credentials:'teacher') {
-            s3Upload(bucket: 'case000', workingDir:'$WORKSPACE/target/', includePathPattern:'**/*');
-	    }
-		mail(subject: 'Build', body: 'New Deployment to Prod', to: 'vdkthakur@gmail.com')
-	}
-    }
+//    stage('Upload to S3') {
+//        steps {
+//            withAWS(region:'region=ap-south-1',credentials:'teacher') {
+//            s3Upload(bucket: 'case000', workingDir:'$WORKSPACE/target/', includePathPattern:'**/*');
+//	    }
+//		mail(subject: 'Build', body: 'New Deployment to Prod', to: 'vdkthakur@gmail.com')
+//	}
+//    }
 
     /*        pwd(); //Log current directory
 
