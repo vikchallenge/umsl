@@ -9,14 +9,14 @@ stages {
         }
     }
 
-    stage('Install jHipster') {
+    stage('Install JHipster') {
         steps {
             sh "/usr/bin/npm install  generator-jhipster yo@latest"
             
         }
     }
 
-    stage('Packaging the Build now') {
+    stage('Packaging the Build') {
         steps {
             sh "./mvnw -Pprod clean verify"
         }
@@ -31,16 +31,16 @@ stages {
 //          }
  //     }
 
-   stage('Execute Java -jar file') {
+    stage('Execute Java -jar file') {
            steps {
 	      sh "export jarjava=`ps -ef | grep java | grep -v grep |  grep 'java -jar' | awk '{print \$2}'` && if ! test -z \${jarjava};then kill -9 \${jarjava};fi"
 		  sh "export JENKINS_NODE_COOKIE=dontKillMe;nohup java -jar /var/lib/jenkins/workspace/umsl/target/*.jar &"
 
 	         }
 	}
-    stage('Send Email Notification') {
+    stage('Send Email Notifications') {
 	    steps {
-	          mail bcc: '', body: "This is Jenkins Build Name ${env.JOB_NAME} and Build Number is [${env.BUILD_NUMBER}] which have result ${currentBuild.currentResult}", cc: '', from: '', replyTo: '', subject: 'Testing', to: 'vikchallenge@gmail.com'
+	          mail bcc: '', body: "This is your Jenkins Build Name ${env.JOB_NAME} and Build Number is [${env.BUILD_NUMBER}] which have result ${currentBuild.currentResult}", cc: '', from: 'Jenkins Server', replyTo: '', subject: 'UMSL case Study', to: 'vikchallenge@gmail.com'
 	    } 
      }
 }
