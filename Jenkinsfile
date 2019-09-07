@@ -36,7 +36,7 @@ stages {
 	      sh "export jarjava=`ps -ef | grep java | grep -v grep |  grep 'java -jar' | awk '{print \$2}'` && if ! test -z \${jarjava};then kill -9 \${jarjava};fi"
 		   script{
 		       sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home"
-			   BUILD_ID=dontKillMe nohup sh "java -jar /var/lib/jenkins/workspace/umsl/target/*.jar &"
+			   JENKINS_NODE_COOKIE=dontKillMe  sh "nohup java -jar /var/lib/jenkins/workspace/umsl/target/*.jar &"
 			    }	   
 	         }
 	}
