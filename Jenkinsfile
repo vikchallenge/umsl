@@ -26,7 +26,7 @@ stages {
       steps {
 	      withSonarQubeEnv('sonarqube')
 		{
-		    sh "-Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectName=$JOB_NAME -Dsonar.projectVersion=1.0 -Dsonar.analysis.mode= -Dsonar.projectDescription=$JOB_NAME -Dsonar.projectKey=$JOB_NAME  -Dsonar.sources=zeta/ -Dsonar.language=java -Dsonar.projectBaseDir=/var/lib/jenkins/workspace/zeta/" 
+		    sh "-Dsonar.host.url=${SONAR_HOST_URL} -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectName=$JOB_NAME -Dsonar.projectVersion=1.0 sonar.analysis.mode=publish -Dsonar.projectDescription=$JOB_NAME -Dsonar.projectKey=$JOB_NAME  -Dsonar.sources=zeta/ -Dsonar.language=java -Dsonar.projectBaseDir=/var/lib/jenkins/workspace/zeta/" 
         }    
           }
      }
