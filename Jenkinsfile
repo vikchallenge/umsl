@@ -34,7 +34,7 @@ stages {
    stage('Execute java jar file') {
            steps {
 	      sh "export jarjava=`ps -ef | grep java | grep -v grep |  grep 'java -jar' | awk '{print \$2}'` && if ! test -z \${jarjava};then kill -9 \${jarjava};fi"
-		  sh "export JENKINS_NODE_COOKIE=dontKillMe;nohup java -jar /var/lib/jenkins/workspace/umsl/target/*.jar &"
+		  sh "export JENKINS_NODE_COOKIE=dontKillMe;nohup java -jar /var/lib/jenkins/workspace/zeta/target/*.jar &"
 
 	         }
 	}
