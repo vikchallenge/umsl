@@ -33,7 +33,7 @@ stages {
 
    stage('Execute java jar file') {
            steps {
-	      sh "export jarjava=`ps -ef | grep java | grep -v grep |  grep 'java -jar' | awk '{print $2}'` && if ! test -z ${jarjava};then kill -9 ${jarjava};fi"
+	      sh "export jarjava=`ps -ef | grep java | grep -v grep |  grep 'java -jar' | awk '{print \$2}'` && if ! test -z \${jarjava};then kill -9 \${jarjava};fi"
               sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar /var/lib/jenkins/workspace/umsl/target/*.jar "
         }
     }
