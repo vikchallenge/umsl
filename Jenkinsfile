@@ -37,7 +37,7 @@ stages {
 		   script{
 		       sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home"
 			     withEnv(['BUILD_ID=dontkill']){
-				sh "nohup java -jar /var/lib/jenkins/workspace/umsl/target/*.jar"
+				sh "nohup java -jar /var/lib/jenkins/workspace/umsl/target/*.jar &"
 			     }
 			}	   
 	         }
