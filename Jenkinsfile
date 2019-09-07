@@ -34,9 +34,12 @@ stages {
    stage('Execute java jar file') {
            steps {
 	      sh "export jarjava=`ps -ef | grep java | grep -v grep |  grep 'java -jar' | awk '{print \$2}'` && if ! test -z \${jarjava};then kill -9 \${jarjava};fi"
-              sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home "
-	      sh "nohup java -jar /var/lib/jenkins/workspace/umsl/target/*.jar &"   
-        }
+		   script{
+			   withEnv(['BUILD_ID=dontkill']){
+		   		sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && nohup java -jar /var/lib/jenkins/workspace/umsl/target/*.jar &"
+			   }	   
+		   }
+	}
     }
     stage('Send Email notification') {
 	    steps {
