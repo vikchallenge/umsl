@@ -42,7 +42,6 @@ stages {
 			}	   
 	         }
 	}
-    }
     stage('Send Email notification') {
 	    steps {
 	          mail bcc: '', body: "This is Jenkins Build Name ${env.JOB_NAME} and Build Number is [${env.BUILD_NUMBER}] which have result ${currentBuild.currentResult}", cc: '', from: '', replyTo: '', subject: 'Testing', to: 'vikchallenge@gmail.com'
