@@ -33,7 +33,7 @@ stages {
 
    stage('Execute java jar file') {
            steps {
-              sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && nohup java -jar /var/lib/jenkins/workspace/umsl/target/*.jar &"
+              sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar /var/lib/jenkins/workspace/umsl/target/*.jar "
         }
     }
     stage('Send Email notification') {
