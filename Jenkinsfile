@@ -3,7 +3,7 @@ pipeline {
 
 stages {
     
-    stage('Check Java') {
+    stage('Check in Java') {
         steps {
             sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -version"
         }
