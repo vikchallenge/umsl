@@ -34,7 +34,8 @@ stages {
    stage('Execute java jar file') {
            steps {
 	      sh "export jarjava=`ps -ef | grep java | grep -v grep |  grep 'java -jar' | awk '{print \$2}'` && if ! test -z \${jarjava};then kill -9 \${jarjava};fi"
-              sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar /var/lib/jenkins/workspace/umsl/target/*.jar "
+              sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home "
+	      sh "nohup java -jar /var/lib/jenkins/workspace/umsl/target/*.jar &"   
         }
     }
     stage('Send Email notification') {
@@ -44,20 +45,6 @@ stages {
      }
 }
 }	
-//	stage('Sending Sending ') {
-//		steps {
-//		     mail(subject: 'Build', body: 'Your new Build '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has been triggred for JHipster Prod Project', to: 'vikchallenge@gmail.com')
-//		}
-//	}
-
-//}
-//    stage('Test URL of webpage') {
-//        steps {
-//            sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
-//        }
-//    }
-//}
-
 //}
 
 //    stage('Upload to S3') {
@@ -69,19 +56,7 @@ stages {
 //	}
 //    }
 
-    /*        pwd(); //Log current directory
-
-            withAWS(region:'ap-south-1',credentials:'iamuser-student') {
-
-                 def identity=awsIdentity();//Log AWS credentials
-
-                // Upload files from working directory 'dist' in your project workspace
-                s3Upload(bucket:"case000", workingDir:'dist', includePathPattern:'');
-            }
-
-        }
-    }*/
-	
+  	
    /*stage('Downlaod and Deploy on Ec2 server is final step') {
         steps {
             sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
