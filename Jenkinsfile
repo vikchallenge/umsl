@@ -16,7 +16,7 @@ stages {
         }
     }
 
-    stage('Packaging the build now') {
+    stage('Packaging the Build now') {
         steps {
             sh "./mvnw -Pprod clean verify"
         }
@@ -31,35 +31,18 @@ stages {
 //          }
  //     }
 
-   stage('Execute java jar file') {
+   stage('Execute Java -jar file') {
            steps {
 	      sh "export jarjava=`ps -ef | grep java | grep -v grep |  grep 'java -jar' | awk '{print \$2}'` && if ! test -z \${jarjava};then kill -9 \${jarjava};fi"
 		  sh "export JENKINS_NODE_COOKIE=dontKillMe;nohup java -jar /var/lib/jenkins/workspace/umsl/target/*.jar &"
 
 	         }
 	}
-    stage('Send Email notification') {
+    stage('Send Email Notification') {
 	    steps {
 	          mail bcc: '', body: "This is Jenkins Build Name ${env.JOB_NAME} and Build Number is [${env.BUILD_NUMBER}] which have result ${currentBuild.currentResult}", cc: '', from: '', replyTo: '', subject: 'Testing', to: 'vikchallenge@gmail.com'
 	    } 
      }
 }
 }	
-//}
 
-//    stage('Upload to S3') {
-//        steps {
-//            withAWS(region:'region=ap-south-1',credentials:'teacher') {
-//            s3Upload(bucket: 'case000', workingDir:'$WORKSPACE/target/', includePathPattern:'**/*');
-//	    }
-//		mail(subject: 'Build', body: 'New Deployment to Prod', to: 'vdkthakur@gmail.com')
-//	}
-//    }
-
-  	
-   /*stage('Downlaod and Deploy on Ec2 server is final step') {
-        steps {
-            sh "export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-12.0.1.jdk/Contents/Home && java -jar $WORKSPACE/target/*.jar"
-        };
-    }*/
-//}
